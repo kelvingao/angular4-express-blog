@@ -8,7 +8,7 @@ export class WebService {
 
     }
 
-    getMessages() {
-        this.http.get('http://localhost:1234/messages').toPromise();
+    async getMessages() {
+        return this.http.get('http://localhost:1234/messages').toPromise();
     }
 }

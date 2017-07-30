@@ -14,11 +14,13 @@ import { WebService } from './web.service';
 })
 
 export class MessagesComponent {
+
+    messages = [];
     constructor(private webService: WebService) {}
 
-    ngOnInit() {
-        this.webService.getMessages();
+    async ngOnInit() {
+        var response = await this.webService.getMessages();
+        this.messages = response.json();
     }
 
-    messages = [{text: 'some tex', owner: 'Tim'}, {text: 'other message', owner: 'Jane'}];
 }
