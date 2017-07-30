@@ -12,14 +12,18 @@ app.use((req, res, next) => {
     next();
 })
 
-app.get('/messages', (req, res) => {
+var api = express.Router();
+
+api.get('/messages', (req, res) => {
     res.json(messages);
 });
 
-app.post('/message', (req, res) => {
+api.post('/message', (req, res) => {
     console.log(req.body);
     messages.push(req.body);
     res.sendStatus(200);
 });
 
-app.listen(1234);
+app.use('/api', api);
+
+app.listen(63145);

@@ -9,6 +9,6 @@ export class WebService {
     }
 
     async getMessages() {
-        return this.http.get('http://localhost:1234/messages').toPromise();
+        return this.http.get('http://localhost:63145/api/messages').toPromise();
     }
 }
