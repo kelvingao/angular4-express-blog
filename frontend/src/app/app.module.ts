@@ -11,13 +11,26 @@ import { NewMessageComponent } from './new-message.component';
 
 import { MdButtonModule, MdSnackBarModule, MdInputModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home.component';
+
+var routes = [
+  {
+  path: '',
+  component: HomeComponent
+},
+{
+  path: 'messages',
+  component: MessagesComponent
+}];
 
 @NgModule({
   declarations: [
     AppComponent,
     MessagesComponent,
     NavComponent,
-    NewMessageComponent
+    NewMessageComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +43,8 @@ import { FormsModule } from '@angular/forms';
     MdMenuModule,
     MdToolbarModule,
     MdIconModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [WebService],
   bootstrap: [AppComponent]
