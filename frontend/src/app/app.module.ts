@@ -9,7 +9,7 @@ import { HttpModule } from '@angular/http';
 import { WebService } from './web.service';
 import { NewMessageComponent } from './new-message.component';
 
-import { MdButtonModule, MdInputModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule } from '@angular/material';
+import { MdButtonModule, MdSnackBarModule, MdInputModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -24,6 +24,7 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     FormsModule,
     MdButtonModule,
+    MdSnackBarModule,
     MdInputModule,
     MdCardModule,
     MdMenuModule,
