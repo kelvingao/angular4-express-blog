@@ -6,14 +6,20 @@ import { Injectable } from '@angular/core';
 export class WebService {
     BASE_URL = 'http://localhost:63145/api';
 
-    constructor(private http: Http) {}
+    messages = [];
 
-    getMessages() {
-        return this.http.get(this.BASE_URL + '/messages').toPromise();
+    constructor(private http: Http) {
+        this.getMessages();
     }
 
-    postMessage(message) {
-        return this.http.post(this.BASE_URL + '/messages', message).toPromise();
+    async getMessages() {
+        var response = await this.http.get(this.BASE_URL + '/messages').toPromise();
+        this.messages = response.json();
+    }
+
+    async postMessage(message) {
+        var response = await this.http.post(this.BASE_URL + '/messages', message).toPromise();
+        this.messages.push(response.json());
     }
 
 }

@@ -21,7 +21,7 @@ api.get('/messages', (req, res) => {
 api.post('/messages', (req, res) => {
     console.log(req.body);
     messages.push(req.body);
-    res.sendStatus(200);
+    res.send(req.body).status(200);
 });
 
 app.use('/api', api);

@@ -8,11 +8,4 @@ import { NavComponent } from './nav-component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-
-  @ViewChild(MessagesComponent) mc: MessagesComponent;
-
-  onPosted(message) {
-    this.mc.messages.push(message);
-  }
-}
+export class AppComponent {}
