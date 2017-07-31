@@ -10,7 +10,7 @@ import { WebService } from './web.service';
 import { NewMessageComponent } from './new-message.component';
 
 import { MdButtonModule, MdSnackBarModule, MdInputModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule } from '@angular/material';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { RegisterComponent } from './register.component';
@@ -46,6 +46,7 @@ var routes = [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     MdButtonModule,
     MdSnackBarModule,
     MdInputModule,
