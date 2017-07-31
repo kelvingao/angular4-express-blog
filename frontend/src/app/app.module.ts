@@ -13,20 +13,25 @@ import { MdButtonModule, MdSnackBarModule, MdInputModule, MdCardModule, MdMenuMo
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
+import { RegisterComponent } from './register.component';
 
 var routes = [
   {
-  path: '',
-  component: HomeComponent
-},
-{
-  path: 'messages',
-  component: MessagesComponent
-},
-{
-  path: 'messages/:name',
-  component: MessagesComponent
-}];
+    path: '',
+    component: HomeComponent
+  },
+  {
+    path: 'messages',
+    component: MessagesComponent
+  },
+  {
+    path: 'messages/:name',
+    component: MessagesComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
+  }];
 
 @NgModule({
   declarations: [
@@ -34,7 +39,8 @@ var routes = [
     MessagesComponent,
     NavComponent,
     NewMessageComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
