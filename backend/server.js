@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var jwt = require('jsonwebtoken');
 
 messages = [{text: 'some text', owner: 'Tim'}, {text: 'other message', owner: 'Jane'}];
-users = [];
+users = [{firstName: 'a', email: 'a', password: 'a', id: 0}];
 
 app.use(bodyParser.json());
 app.use((req, res, next) => {
@@ -35,15 +35,33 @@ api.post('/messages', (req, res) => {
     res.send(req.body).status(200);
 });
 
+auth.post('/login', (req, res) => {
+    var user = users.find(user => req.body.firstName == user.firstName);
+
+    if (!user) sendAuthError(res);
+
+    if (user.password == req.body.password) {
+        sendToken(user, res);
+    } else
+        sendAuthError(res);
+})
 auth.post('/register', (req, res) => {
     var index = users.push(req.body) - 1;
 
     var user = users[index];
     user.id = index;
 
-    var token = jwt.sign(user.id, '123');
-    res.json(token);
+    sendToken(user, res);
+
 })
+
+function sendAuthError(res) {
+    return res.json({ success: false, message: 'username or password incorrect'});
+}
+function sendToken(user, res) {
+    var token = jwt.sign(user.id, '123');
+    res.json({firstName: user.firstName, token: token});
+}
 
 app.use('/api', api);
 app.use('/auth', auth);

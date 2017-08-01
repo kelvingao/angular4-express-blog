@@ -8,6 +8,7 @@ import { NavComponent } from './nav-component';
 import { HttpModule } from '@angular/http';
 import { WebService } from './web.service';
 import { NewMessageComponent } from './new-message.component';
+import { LoginComponent } from './login.component';
 
 import { MdButtonModule, MdSnackBarModule, MdInputModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -32,7 +33,12 @@ var routes = [
   {
     path: 'register',
     component: RegisterComponent
-  }];
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  }
+];
 
 @NgModule({
   declarations: [
@@ -41,7 +47,8 @@ var routes = [
     NavComponent,
     NewMessageComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
