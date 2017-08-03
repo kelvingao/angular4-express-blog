@@ -16,16 +16,13 @@ export class RegisterComponent {
 
     constructor(private fb: FormBuilder, private auth: AuthService) {
         this.form = fb.group ({
-             firstName: ['', Validators.required],
-             lastName: ['', Validators.required],
-             email: ['', [Validators.required, emailValid()]],
+             username: ['', Validators.required],
              password: ['', Validators.required],
              confirmPassword: ['', Validators.required]
         }, { validator: matchingFields('password', 'confirmPassword')})
     }
 
     onSubmit() {
-        console.log(this.form.errors);
         this.auth.register(this.form.value);
     }
 
@@ -42,10 +39,10 @@ function matchingFields(field1, field2) {
     }
 }
 
-function emailValid() {
-    return control => {
-        var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+// function emailValid() {
+//     return control => {
+//         var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     
-        return regex.test(control.value) ? null : { invalidEmail: true }
-    }
-}
+//         return regex.test(control.value) ? null : { invalidEmail: true }
+//     }
+// }

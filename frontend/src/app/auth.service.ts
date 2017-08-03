@@ -45,12 +45,11 @@ export class AuthService {
 
     authenticate (res) {
         var authResponse = res.json();
-        console.log(authResponse);
         if (!authResponse.token)
             return;
 
         localStorage.setItem(this.TOKEN_KEY, authResponse.token);
-        localStorage.setItem(this.NAME_KEY, authResponse.firstName);
+        localStorage.setItem(this.NAME_KEY, authResponse.username);
         this.router.navigate(['/']);
     }
 }

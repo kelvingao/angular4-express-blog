@@ -6,7 +6,7 @@ import { AuthService } from './auth.service';
     template: `
         <md-card>
             <md-input-container>
-                <input mdInput [(ngModel)]="loginData.firstName" placeholder="User">
+                <input mdInput [(ngModel)]="loginData.username" placeholder="User">
             </md-input-container>
              <md-input-container>
                 <input mdInput [(ngModel)]="loginData.password" type="password" placeholder="Password">
@@ -18,7 +18,7 @@ import { AuthService } from './auth.service';
 
 export class LoginComponent {
     loginData = {
-        firstName:'',
+        username:'',
         password:''
     }
 

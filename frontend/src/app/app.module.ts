@@ -28,7 +28,7 @@ var routes = [
     component: MessagesComponent
   },
   {
-    path: 'messages/:name',
+    path: 'messages/:ownerId',
     component: MessagesComponent
   },
   {

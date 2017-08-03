@@ -1,13 +1,7 @@
 <md-card class="card">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <md-input-container>
-            <input style="width:350px" [ngClass]="{'error': isValid('firstName')}" mdInput placeholder="First Name" formControlName="firstName">
-        </md-input-container>
-        <md-input-container>
-            <input style="width:350px" [ngClass]="{'error': isValid('lastName')}" mdInput placeholder="Last Name" formControlName="lastName">
-        </md-input-container>
-        <md-input-container>
-            <input style="width:350px" [ngClass]="{'error': isValid('email')}" type="email" mdInput placeholder="Email" formControlName="email">
+            <input style="width:350px" [ngClass]="{'error': isValid('username')}" mdInput placeholder="User Name" formControlName="username">
         </md-input-container>
         <md-input-container>
             <input style="width:350px" [ngClass]="{'error': isValid('password')}"type="password" mdInput placeholder="Password" formControlName="password">
